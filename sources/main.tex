@@ -1,0 +1,105 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+
+\usepackage{amsmath}
+
+\usepackage{pgfplots}
+\usepackage{sagetex}
+\usepgfplotslibrary{fillbetween}
+\usepgfplotslibrary{polar}
+\pgfplotsset{compat=newest}
+
+\usepackage{multienum}
+\usepackage{geometry}
+\geometry{
+    left=1cm,right=1cm,top=2cm,bottom=2cm
+}
+\newcommand*\diff{\mathop{}\!\mathrm{d}}
+
+\newtheorem{definition}{Определение}
+\newtheorem{theorem}{Теорема}
+
+\DeclareMathOperator{\sign}{sign}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks, citecolor=black, filecolor=black, linkcolor=black, urlcolor=black
+}
+
+\title{Высшая математика}
+\author{Лисид Лаконский}
+\date{May 2023}
+
+\begin{document}
+\raggedright
+
+\maketitle
+
+\tableofcontents
+\pagebreak
+
+\section{Расчетно-графическая работа №4, вариант №21}
+
+\subsection{Задание №1}
+
+Дана аналитическая функция $f(z) = u + i v$, где $u = Re \ f(z)$, $v = Im \ f(z)$. Найти эту функцию, если:
+
+$$
+u = 4 x y - y
+$$
+
+\textbf{Решение.}
+
+Найдем мнимую часть функции $f(z)$. Найдем частные производные от действительной части:
+
+$\frac{\delta u}{\delta x} = 4 y$, $\frac{\delta u}{\delta y} = 4 x - 1$
+
+Условия Коши-Римана:
+
+$\frac{\delta v}{\delta y} = \frac{\delta u}{\delta x} = 4 y$
+
+$\frac{\delta v}{\delta x} = -\frac{\delta u}{\delta y} = 1 - 4 x$
+
+Поскольку $\frac{\delta v}{\delta y} = 4 y$, то общий интеграл $v(x, y)$ восстанавливаем частным интегрированием по «игрек»:
+
+$v = \int (4 y) \diff y = 2 y^2 + \phi (x)$, где $\phi (x)$ — неизвестная функция, зависящая только от «икс».
+
+Теперь от $v(x, y) = 2 y^2 + \phi (x)$  берем частную производную по «икс»:
+
+$\frac{\delta v}{\delta x} = \phi'_x(x)$
+
+И результат приравниваем к изначальной частной производной по «икс»:
+
+$\phi'_x(x) = 1 - 4 x \Longleftrightarrow \phi(x) = x - 2x^2 + C$
+
+$v(x, y) = 2 y^2 + x - 2x^2 + C$
+
+Таким образом, $f(z) = u (x, y) + v (x, y) i = (4 x y - y) + (2 y^2 + x - 2x^2 + C) i = 4 x y - y + 2y^2 i + x i - 2x^2 i + C i = y (4x - 1) + 2 i (y^2 - x^2) + x i + C i$
+
+\subsection{Задание №2}
+
+Найти образ $E$ области $D$ плоскости $z$ при отображении функцией $w = f(z)$ 
+
+$$
+D \ : \ \{ z | \ |z| < 1; \ 0 < arg \ z < \frac{\pi}{4} \}; \ w = z^4
+$$
+
+\textbf{Решение.}
+
+$w = z^4 = |z|^4 (\cos 4 \arg z + i \sin 4 \arg z)$, то есть, $0 < |w| < 1$, $0 < Arg \ w < \pi$.
+
+Множество $E$ есть единичный ($r = 1$) полукруг.
+
+\subsection{Задание №3}
+
+Найти функцию, отображающую область $D$ плоскости $z$ на область $E$ плоскости $w$.
+
+$$
+D \ : \ \{ z \ | \ | z - 2 i | < 1, \ Re \ z < 0 \}; \ \ E: \{ w \ | \ Im \ w > 0 \}
+$$
+
+\end{document}
