@@ -49,36 +49,42 @@
 Дана аналитическая функция $f(z) = u + i v$, где $u = Re \ f(z)$, $v = Im \ f(z)$. Найти эту функцию, если:
 
 $$
-u = 4 x y - y
+v = 4 x y - y
 $$
 
-\textbf{Решение.}
+\textbf{Решение.} Найдем действительную часть функции $f(z)$.
 
-Найдем мнимую часть функции $f(z)$. Найдем частные производные от действительной части:
+Так как $v(x, y) = 4 x y - y$, то:
 
-$\frac{\delta u}{\delta x} = 4 y$, $\frac{\delta u}{\delta y} = 4 x - 1$
+$\frac{\diff v}{\diff x} = 4 y$
 
-Условия Коши-Римана:
+$\frac{\diff v}{\diff y} = 4 x - 1$
 
-$\frac{\delta v}{\delta y} = \frac{\delta u}{\delta x} = 4 y$
+В соответствии с условиями Коши-Римана:
 
-$\frac{\delta v}{\delta x} = -\frac{\delta u}{\delta y} = 1 - 4 x$
+$\frac{\diff u}{\diff x} = \frac{\diff v}{\diff y} = 4 x - 1$
 
-Поскольку $\frac{\delta v}{\delta y} = 4 y$, то общий интеграл $v(x, y)$ восстанавливаем частным интегрированием по «игрек»:
+$\frac{\diff u}{\diff y} = -\frac{\diff v}{\diff x} = - 4 y$
 
-$v = \int (4 y) \diff y = 2 y^2 + \phi (x)$, где $\phi (x)$ — неизвестная функция, зависящая только от «икс».
+Поскольку $\frac{\diff u}{\diff x} = 4 x - 1$, то
 
-Теперь от $v(x, y) = 2 y^2 + \phi (x)$  берем частную производную по «икс»:
+$u(x, y) = \int (4x - 1) \diff x = 2x^2 - x + \phi (y)$
 
-$\frac{\delta v}{\delta x} = \phi'_x(x)$
+Найдем частную производную по «игрек»:
 
-И результат приравниваем к изначальной частной производной по «икс»:
+$\frac{\diff u}{\diff y} = 0 + \phi'_y (y)$
 
-$\phi'_x(x) = 1 - 4 x \Longleftrightarrow \phi(x) = x - 2x^2 + C$
+Таким образом:
 
-$v(x, y) = 2 y^2 + x - 2x^2 + C$
+$0 + \phi'_y (y) = - 4 y \Longleftrightarrow \phi (y) = - 2 y^2 + C$
 
-Таким образом, $f(z) = u (x, y) + v (x, y) i = (4 x y - y) + (2 y^2 + x - 2x^2 + C) i = 4 x y - y + 2y^2 i + x i - 2x^2 i + C i = y (4x - 1) + 2 i (y^2 - x^2) + x i + C i$
+В результате: $u(x, y) = 2x^2 - x - 2 y^2 + C$
+
+$f(z) = u + i v = (2x^2 - x - 2y^2 + C) + (4 x y - y) i = 2x^2 - x - 2y^2 + C + 4x y i - y i = - (x + y i) + 2 (x^2 + 2 x y i - y^2) + C = - z + 2 z^2 + C$
+
+\hfill
+
+\textbf{Ответ}: $-z + 2 z^2 + C$
 
 \subsection{Задание №2}
 
@@ -92,7 +98,9 @@ $$
 
 $w = z^4 = |z|^4 (\cos 4 \arg z + i \sin 4 \arg z)$, то есть, $0 < |w| < 1$, $0 < Arg \ w < \pi$.
 
-Множество $E$ есть единичный ($r = 1$) полукруг.
+\hfill
+
+\textbf{Ответ:} Множество $E$ есть полукруг радиуса $1$.
 
 \subsection{Задание №3}
 
@@ -100,6 +108,77 @@ $w = z^4 = |z|^4 (\cos 4 \arg z + i \sin 4 \arg z)$, то есть, $0 < |w| < 1
 
 $$
 D \ : \ \{ z \ | \ | z - 2 i | < 1, \ Re \ z < 0 \}; \ \ E: \{ w \ | \ Im \ w > 0 \}
+$$
+
+\subsection{Задание №4}
+
+Вычислить интеграл.
+
+$$
+\int\limits_{A B} z Re \ z^2 \diff z; \ \ AB : \{ \text{отрезок прямой, } z_{A} = 0, \ z_{B} = 1 + 2 i \}
+$$
+
+\textbf{Решение.} Уравнение отрезка с концами в точках $z_{A}$, $z_{B}$ имеет вид:
+
+$$
+z - z_{A} = t (z_{B} - z_{A}), \ \ 0 \le t \le 1
+$$
+
+В нашем случае $z = t (1 + 2 i) = t + 2 t i$, $z^2 = (t + 2 t i) (t + 2 t i) = t^2 + 2t^2 i + 2 t^2 i - 4 t^2 = 4 t^2 i - 3 t^2$. Следовательно, $Re \ z^2 = - 3 t^2$, $\diff z = (1 + 2 i) \diff t$
+
+$\int\limits_{A B} = (t + 2 t i) (-3 t^2) (1 + 2 i) \diff t = \int\limits_{A B} ((-3t^3 - 6 t^3 i) (1 + 2 i)) \diff t = \int\limits_{A B} (-3t^3 - 6 t^3 i - 6t^3 i - 12t^3 i^2) \diff t = \int\limits_{A B} (12 t^3 - 12 t^3 i - 3 t^3) \diff t =  (3 t^4 - 3i t^4 - \frac{3}{4} t^4) \bigg|_{0}^{1} = (\frac{9}{4} t^4 - 3 i t^4) \bigg|_{0}^{1} = \frac{9}{4} - 3 i$
+
+\hfill
+
+\textbf{Ответ:} $\frac{9}{4} - 3 i$
+
+\subsection{Задание №5}
+
+Вычислить при помощи формул Коши интеграл.
+
+$$
+\oint\limits_{|z - 2| = 1} \frac{e^{\frac{1}{z}}}{(z^2 + 4)^2} \diff z
+$$
+
+\hfill
+
+\textbf{Решение.}
+
+$\oint\limits_{|z - 2| = 1} \frac{e^{\frac{1}{z}}}{(z^2 + 4)^2} \diff z = 0$, так как $f(z)$ является аналитической всюду в указанной области.
+
+\hfill
+
+\textbf{Ответ:} 0
+
+\subsection{Задание №6}
+
+Найти все лорановские разложения по степеням $z$ функции.
+
+$$
+w = \frac{5 z + 50}{25 z + 5 z^2 - 2 z^3}
+$$
+
+\textbf{Решение.}
+
+$w = \frac{5 z + 50}{25 z + 5 z^2 - 2 z^3} = \frac{5 z + 50}{z (25 + 5z - 2 z^2)}$
+
+Центр разложения: $z_0 = 0$
+
+$25 z + 5 z^2 - 2 z^3 = 0 \Longleftrightarrow z_1 = -\frac{5}{2}, \ z_2 = 0, \ z_3 = 5$ — точки, в которых функция теряет свою аналитичность
+
+Находим следующие области: $|z| > 5$, $0 < |z| < 5$, $0 < |z| < \frac{5}{2}$, $\frac{5}{2} < |z| < 5$
+
+\begin{enumerate}
+    \item $|z| > 5$: \\
+    $f(z) = \frac{5z + 50}{z^2} * \frac{1}{\frac{25}{z} + 5 - 2z} = \frac{5z + 50}{z^2} * \frac{1}{1 - (2z -\frac{25}{z} - 4)} = \frac{5 z + 50}{z^2} \sum\limits_{n = 0}^{\infty} (2z -\frac{25}{z} - 4)^{n} = \frac{5 z + 50}{z^2} \sum\limits_{n = 0}^{\infty} (\frac{2 z^2 - 4z - 25}{z})^{n} = \sum\limits_{n = 0}^{\infty} \frac{(5 z + 50)(2 z^2 - 4z - 25)^{n}}{z^{n + 2}}$, область сходимости: $|\frac{2 z^2 - 4z - 25}{z}| < 1$
+\end{enumerate}
+    
+\subsection{Задание №7}
+
+Разложить в ряд Лорана в окрестности точки $z_0$ функцию.
+
+$$
+w = z e^{\pi / (z - a)^2}, \ z_0 = a
 $$
 
 \end{document}
